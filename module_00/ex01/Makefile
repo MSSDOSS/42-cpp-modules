@@ -1,15 +1,16 @@
 NAME = phonebook
 
+OBJS = main.o contact.o phonebook.o
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRCS = $(wildcard *.cpp)
-HEADER = $(wildcard *.hpp)
 
+SRCS = contact.cpp main.cpp phonebook.cpp
 
-OBJS = main.o
+HEADERS = contact.hpp phonebook.hpp
+
 all : $(NAME)
 
-%.o : %.cpp
+%.o : %.cpp 
 	c++ $(CFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS) $(SRCS)

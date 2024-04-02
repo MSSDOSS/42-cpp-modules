@@ -6,7 +6,7 @@
 /*   By: hel-haia <hel-haia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 01:59:36 by hel-haia          #+#    #+#             */
-/*   Updated: 2024/04/01 19:02:07 by hel-haia         ###   ########.fr       */
+/*   Updated: 2024/04/02 03:02:08 by hel-haia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ void Phonebook::addcontact()
     index++;
 }
 
+#include <sstream>
+
 void    Phonebook::search()
 {
     int a;
@@ -118,9 +120,12 @@ void    Phonebook::search()
         i++;
     }
     std::cout << "please enter index of the entry :";
-    std::cin >> a;
+    std::string str;
+    std::getline(std::cin, str);
+    std::stringstream ss(str);
+    ss >> a;//"45" 45
     a--;
-    if (a >= 0 && a <= i)
+    if (!str.empty() && a >= 0 && a <= i-1 && a <= 8)
     {
         std::cout << "####\n";
             std::cout << " the first name is: "<< array[a].getfirstname() << std::endl;
